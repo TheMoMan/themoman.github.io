@@ -99,6 +99,16 @@
     }
   }
 
+  /* More animations */
+
+  --animate-fade-in-fast: fade-in 150ms linear forwards;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+  }
+
   /* Overrides */
   --text-shadow-lg: 1px 1px 2px rgb(0 0 0 / 0.1),
   3px 3px 2px rgb(0 0 0 / 0.1),

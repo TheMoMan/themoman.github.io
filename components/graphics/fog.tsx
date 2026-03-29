@@ -1,11 +1,11 @@
 import React from "react"
 
 interface FogLayerProps {
-  className?: string,
-  colour?: string,
-  opacity?: string,
-  height?: string,
-  style?: React.CSSProperties,
+  className?: string;
+  colour?: string;
+  opacity?: string;
+  height?: string;
+  style?: React.CSSProperties;
 }
 
 export function Fog() {
