@@ -1,4 +1,5 @@
 import { Fog } from "../graphics/fog"
+import { TextFlyThrough } from "./text-fly-through";
 
 export function Hero() {
   return (
@@ -12,19 +13,24 @@ export function Hero() {
         <HeroContent />
       </div>
     </div>
-  )
+  );
 }
 
 function HeroContent() {
   return (
     <div className="grid grid-cols-2 divide-x-2 divide-solid divide-white/30 z-10">
-      <div className="size-80">
-        <img src="/assets/avatar.png" />
+      <div className="overflow-hidden flex items-center">
+        <img className="animate-avatar w-80" src="/assets/avatar.png" />
       </div>
-      <div className="grid justify-center">
-        <div className="flex items-end text-[72px] text-shadow-lg">A Mo</div>
-        <div className="flexd items-start">subtitle</div>
+      <div className="overflow-hidden flex justify-center grid text-shadow-lg text-shadow-black/50">
+        <div className="animate-hero-text flex items-end text-[72px]">A Mo</div>
+        <div className="flex items-start text-lg">
+          <TextFlyThrough
+            items={["Software Engineer", "Full Stack Developer", "Physics Graduate", "Circle Placer"]}
+            delayMs={1000}
+          />
+        </div>
       </div>
     </div>
-  )
+  );
 }

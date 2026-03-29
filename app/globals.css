@@ -2,9 +2,12 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@source "./global.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Hero animations */
   --animate-fog-slow: fog-scroll 20s linear infinite, fog-opacity 61s linear infinite;
   --animate-fog-medium: fog-scroll 15s linear infinite, fog-opacity 48s linear infinite;
   --animate-fog-fast: fog-scroll 7s linear infinite, fog-opacity 39s linear infinite;
@@ -40,6 +43,58 @@
       opacity: 1
     }
   }
+
+  --animate-avatar: avatar-translate 1s ease-in forwards;
+  --animate-hero-text: hero-text-translate 1s ease-in forwards;
+
+  @keyframes avatar-translate {
+    0% {
+      transform: translateX(90%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes hero-text-translate {
+    0% {
+      transform: translateX(-150%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  --animate-fly-through-left-right: fly-through-left-right 4s ease-in-out forwards;
+
+  @keyframes fly-through-left-right {
+    0% {
+      transform: translateX(-150%);
+      opacity: 0;
+    }
+
+    15% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    85% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(150%);
+      opacity: 0;
+    }
+  }
+
+  /* Overrides */
+  --text-shadow-lg: 1px 1px 2px rgb(0 0 0 / 0.1),
+  3px 3px 2px rgb(0 0 0 / 0.1),
+  4px 4px 8px rgb(0 0 0 / 0.1);
 
   /* Defaults */
   --font-heading: var(--font-sans);

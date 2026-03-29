@@ -14,7 +14,7 @@ export function Fog() {
       <FogLayer
         className="animate-fog-slow scale-100"
         colour="255, 255, 255"
-        opacity="0.10"
+        opacity="0.13"
         height="12%"
       />
       <FogLayer
@@ -26,7 +26,7 @@ export function Fog() {
       <FogLayer
         className="animate-fog-fast scale-100"
         colour="255, 255, 255"
-        opacity="0.10"
+        opacity="0.13"
         height="88%"
       />
     </div>
