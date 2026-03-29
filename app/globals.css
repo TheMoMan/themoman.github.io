@@ -91,6 +91,14 @@
     }
   }
 
+  --animate-caret: caret-blink 1s steps(1, jump-end) infinite;
+
+  @keyframes caret-blink {
+    50% {
+      opacity: 0%;
+    }
+  }
+
   /* Overrides */
   --text-shadow-lg: 1px 1px 2px rgb(0 0 0 / 0.1),
   3px 3px 2px rgb(0 0 0 / 0.1),
