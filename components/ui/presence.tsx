@@ -74,7 +74,7 @@ export function Presence() {
       <div className="flex justify-center min-h-16 text-xl">
         {getLabel()}
       </div>
-      <div className="flex justify-center">
+      <div className="flex flex-wrap justify-center">
         {presenceList.map((presence) => PresenceIcon(presence, setActivePresence))}
       </div>
     </div>
@@ -85,7 +85,7 @@ function PresenceIcon(
   presence: PresenceProps,
   setActivePresence: Dispatch<SetStateAction<PresenceProps | undefined>>,
 ) {
-  const { url, icon: Icon } = presence;
+  const { url, icon: Icon, label, labelLeft, labelRight } = presence;
 
   const onMouseOver = () => {
     setActivePresence(presence);
@@ -102,6 +102,9 @@ function PresenceIcon(
       className="px-3 text-white/50 hover:text-white transition-all duration-150"
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
+      onFocus={onMouseOver}
+      onBlur={onMouseLeave}
+      aria-label={label ?? `${labelLeft}, ${labelRight}`}
     >
       <Icon
         size="3.2em"

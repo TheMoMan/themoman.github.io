@@ -23,8 +23,8 @@ function HeroContent() {
         <img className="animate-avatar w-80" src="/assets/avatar.png" />
       </div>
       <div className="overflow-hidden flex justify-center grid text-shadow-lg text-shadow-black/50">
-        <div className="animate-hero-text flex items-end text-[72px] min-w-[180px]">A Mo</div>
-        <div className="flex items-start text-lg">
+        <div className="animate-hero-text flex items-end text-[48px] sm:text-[72px] min-w-[180px] px-2">A Mo</div>
+        <div className="flex items-start text-md sm:text-lg px-2">
           <Typewriter
             items={["Software Engineer", "Full Stack Developer", "Physics Graduate", "Circle Placer", "Video Editor"]}
             startDelayMs={1000}
