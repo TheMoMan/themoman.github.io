@@ -72,15 +72,17 @@ export function Typewriter({
   }, [items, startDelayMs, typeSpeedMs, deleteSpeedMs, holdDurationMs, currentText, mode]);
 
   return (
-    <div
-      className="min-w-[150px] min-h-[28px]"
-      aria-hidden="true"
-    >
-      {currentText}
-      {!(mode === "waiting") && <span className="animate-caret">|</span>}
+    <>
+      <div
+        className="min-w-[150px] min-h-[28px]"
+        aria-hidden="true"
+      >
+        {currentText}
+        {!(mode === "waiting") && <span className="animate-caret">|</span>}
+      </div>
 
       {/* Screen reader relief */}
       <span className="sr-only">{items.join(", ")}</span>
-    </div>
+    </>
   );
 }
