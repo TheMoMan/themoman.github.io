@@ -7,8 +7,8 @@ export default function Page() {
     <div className="">
       <Hero />
       <div className={cn(
-        "flex flex-col relative z-10  min-h-screen",
-        "bg-gradient-to-r from-secondary via-background to-secondary",
+        "flex flex-col relative z-10 min-h-screen",
+        "bg-[linear-gradient(to_right,var(--color-secondary),var(--color-background)_15%,var(--color-background)_85%,var(--color-secondary))]",
       )}>
         <Presence />
         <div className="text-center mt-auto mb-3 text-white/5">Content here soon?</div>

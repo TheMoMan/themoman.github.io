@@ -4,7 +4,7 @@ import { Typewriter } from "./typewriter";
 export function Hero() {
   return (
     <div
-      className="relative bg-fixed bg-cover bg-center h-[67vh]"
+      className="relative bg-fixed bg-cover bg-center h-[60vh] sm:h-[67vh]"
       style={{ backgroundImage: "url('/assets/home.jpg')" }}
     >
       <div className="absolute inset-0 bg-black/80" />
