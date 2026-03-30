@@ -27,8 +27,8 @@ jobs:
       - name: Build with Next.js 🏗️
         run: npx next build
 
-      - name: List files
-        run: ls -la
+      # - name: List files
+      #   run: ls -la
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
