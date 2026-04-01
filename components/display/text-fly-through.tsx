@@ -27,7 +27,7 @@ export function TextFlyThrough({
         animationDelay: `${started.current ? 0 : delayMs}ms`,
         animationFillMode: "both",
       }}
-      className="animate-fly-through-left-right min-w-[140px]"
+      className="animate-fly-through-left-right min-w-35"
     >
       {items[index]}
     </div>

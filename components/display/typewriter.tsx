@@ -74,7 +74,7 @@ export function Typewriter({
   return (
     <>
       <div
-        className="min-w-[150px] min-h-[28px]"
+        className="min-w-37.5 min-h-7"
         aria-hidden="true"
       >
         {currentText}

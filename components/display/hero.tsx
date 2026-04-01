@@ -22,13 +22,13 @@ function HeroContent() {
       <div className="overflow-hidden flex items-center">
         <img className="animate-avatar w-80" src="/assets/avatar.png" />
       </div>
-      <div className="overflow-hidden flex justify-center grid text-shadow-lg text-shadow-black/50">
-        <div className="animate-hero-text flex items-end text-[48px] sm:text-[72px] min-w-[180px] px-2 sm:px-0">
+      <div className="overflow-hidden justify-center grid text-shadow-lg text-shadow-black/50">
+        <div className="animate-hero-text font-heading flex items-end text-[48px] sm:text-[72px] min-w-45 px-2 sm:px-0">
           A Mo
         </div>
         <div className="flex items-start text-md sm:text-lg px-2 sm:px-0">
           <Typewriter
-            items={["Software Engineer", "Full Stack Developer", "Physics Graduate", "Circle Placer", "Video Editor"]}
+            items={["Software Engineer", "Full Stack Developer", "Circle Placer", "Physics Graduate", "Video Editor"]}
             startDelayMs={1000}
           />
         </div>
