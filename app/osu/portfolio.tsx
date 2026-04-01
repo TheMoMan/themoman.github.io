@@ -1,8 +1,11 @@
+"use client";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import React, { JSX } from "react";
 import { CONTENT_LIST } from "./content-list";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useInView } from "@/hooks/useInView";
+import { CarouselDots } from "@/components/ui/carousel-dots";
 
 export interface OsuPortfolioContent {
   name: string;
@@ -22,6 +25,8 @@ export function OsuPortfolio() {
 }
 
 function OsuPortfolioComponent(content: OsuPortfolioContent, index: number) {
+  const { ref, isInView } = useInView({ threshold: 0.20 });
+
   const getCarouselItem = (children: React.ReactNode, key: React.Key) => {
     return (
       <CarouselItem key={key}>
@@ -47,27 +52,44 @@ function OsuPortfolioComponent(content: OsuPortfolioContent, index: number) {
 
   const reverse = index % 2 === 1;
 
+  const loadFromLeft = isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-15";
+  const loadFromRight = isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-15";
+  const leftClass = cn(loadFromLeft, "order-1 text-right");
+  const rightClass = cn(loadFromRight, "order-2 text-left");
+
   return (
-    <div key={index}>
+    <div key={index} ref={ref}>
       <div className="grid grid-cols-2 my-6">
         <Carousel
           opts={{ loop: true }}
           className={cn(
             "px-2",
-            reverse && "order-2",
+            "transition-all duration-1000",
+            reverse ? rightClass : leftClass,
           )}
         >
           <CarouselContent>
             {getCarouselContent()}
           </CarouselContent>
-          <CarouselPrevious className="left-8 translate-x-0 invisible sm:visible" />
-          <CarouselNext className="right-8 translate-x-0 invisible sm:visible" />
+          {content.images?.length && (
+            <>
+              <CarouselPrevious className="left-8 translate-x-0 invisible sm:visible" />
+              <CarouselNext className="right-8 translate-x-0 invisible sm:visible" />
+            </>
+          )}
+          <CarouselDots />
         </Carousel>
-        <div className={cn(reverse && "order-1 text-right")}>
+
+        <div
+          className={cn(
+            "transition-all duration-1000",
+            reverse ? leftClass : rightClass,
+          )}
+        >
           <a href={content.link} className="font-serif text-xl underline">
             {content.name}
           </a>
-          <div className="font-serif text-sm text-highlight leading-1.75 pb-1">
+          <div className="font-serif text-xs text-highlight leading-1.8 pb-1">
             {content.alternateName}
           </div>
           <div className="font-serif text-xs py-1 text-highlight">
