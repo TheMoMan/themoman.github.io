@@ -66,6 +66,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         label: "Code",
       },
     ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/senpai-temp_jxpppr",
+    ],
     date: "2019 Jun 04",
     text: (
       <>
@@ -82,6 +85,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         url: "https://osu.ppy.sh/beatmapsets/549977",
         label: "Mapset",
       },
+    ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ochiteiru-temp_mc8qd4",
     ],
     date: "2019 Jan 07",
     text: (
@@ -103,6 +109,10 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         url: "https://github.com/TheMoMan/osu.storyboards/tree/master/Nostalgic%20Rainfall",
         label: "Code",
       },
+    ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/rainfall-temp-1_sz8pdn",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/rainfall-temp-2_jf3grh",
     ],
     date: "2018 Nov 05",
     text: (
@@ -129,6 +139,10 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         label: "Video",
       },
     ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/zetsubou-temp-1_lvhydk",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/zetsubou-temp-2_yrwq4x",
+    ],
     date: "2017 Oct 12",
     text: (
       <>
@@ -154,6 +168,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         label: "Video",
       },
     ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/sakigake-temp_snvfra",
+    ],
     date: "2017 Aug 17",
     text: (
       <>
@@ -170,6 +187,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         url: "https://osu.ppy.sh/beatmapsets/463701",
         label: "Mapset",
       },
+    ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/hatenaki-temp_dhtm27",
     ],
     date: "2016 Oct 23",
     text: (
@@ -188,6 +208,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         label: "Mapset",
       },
     ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/shissou-temp_wmfo19",
+    ],
     date: "2016 Apr 03",
     text: (
       <>
@@ -205,6 +228,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         label: "Mapset",
       },
     ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/nosete-temp_mjtwkd",
+    ],
     date: "2015 Nov 12",
     text: (
       <>
@@ -221,6 +247,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
         url: "https://osu.ppy.sh/beatmapsets/223048",
         label: "Mapset",
       },
+    ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/shinkai-temp_w3oxgk",
     ],
     date: "2015 May 21",
     text: (
