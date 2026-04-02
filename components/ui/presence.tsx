@@ -99,7 +99,7 @@ function PresenceIcon(
     <a
       key={url}
       href={url}
-      className="px-3 text-white/50 hover:text-white transition-all duration-150"
+      className="px-3 text-white/50 hover:text-white transition-colors duration-150"
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
       onFocus={onMouseOver}
