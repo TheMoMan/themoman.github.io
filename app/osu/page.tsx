@@ -5,10 +5,10 @@ import { OsuPortfolio } from "./portfolio";
 
 export default function Osu() {
   return (
-    <div className="max-w-3xl mx-auto px-6">
+    <div className="mx-auto">
       <OsuHeader />
       <OsuNav activePage="/osu" />
-      <OsuBlurb />
+      {/* <OsuBlurb /> */}
       <hr/>
       <OsuPortfolio />
     </div>

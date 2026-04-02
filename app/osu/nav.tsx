@@ -46,7 +46,7 @@ export function OsuNav(props: OsuNavProps) {
   };
 
   return (
-    <div className="flex justify-center divide-x divide-solid divide-white">
+    <div className="flex justify-center divide-x divide-solid divide-white my-3">
       {osuNavLinks.map((link) => navLink(link))}
     </div>
   );
