@@ -227,7 +227,7 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
     text: (
       <>
         <p>Trying out fog effects and additive blending.</p>
-        <p>This is when I discovered you could use code to write storyboards.</p>
+        <p>This is when I realised you could use code to automate the text.</p>
       </>
     )
   },
