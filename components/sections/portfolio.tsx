@@ -120,28 +120,32 @@ function PortfolioItem(
             )}
             <CarouselDots />
           </Carousel>
-          <div className="text-xs text-center pt-2">
-            {content.links.map((link) => getExtraLinks(link))}
-          </div>
         </div>
 
         <div
           className={cn(
-            "transition-all duration-1000",
+            "flex flex-col transition-all duration-1000",
             reverse ? leftClass : rightClass,
           )}
         >
           <a href={mapsetUrl?.url} className="font-serif text-xl underline">
             {content.header}
           </a>
-          <div className="font-serif text-xs text-highlight leading-1.8 pb-1">
-            {content.subHeader}
-          </div>
+          {
+            content.subHeader && (
+              <div className="font-serif text-xs text-highlight leading-1.8 pb-1">
+                {content.subHeader}
+              </div>
+            )
+          }
           <div className="font-serif text-xs pb-1 text-highlight">
             {content.date}
           </div>
           <div className="text-tint space-y-1.5 leading-4.5">
             {content.text}
+          </div>
+          <div className="text-xs text-tint pt-2 mt-auto">
+            {content.links.map((link) => getExtraLinks(link))}
           </div>
         </div>
       </div>
