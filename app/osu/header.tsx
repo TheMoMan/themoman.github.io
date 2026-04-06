@@ -5,7 +5,7 @@ export function OsuHeader() {
   return (
     <section
       className={cn(
-        "flex justify-center gap-6 sm:gap-12",
+        "flex justify-center gap-6 sm:gap-12 px-1",
         "relative bg-fixed bg-cover bg-position-[center_bottom_17rem] h-[30vh]",
       )}
       style={{ backgroundImage: "url('/assets/home.jpg')" }}

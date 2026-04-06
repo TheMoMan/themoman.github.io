@@ -23,7 +23,7 @@ interface OsuPortfolioExtraLinks {
 
 export function OsuPortfolio() {
   return (
-    <section className="max-w-5xl mx-auto">
+    <section className="max-w-5xl mx-auto px-2">
       {CONTENT_LIST.map((content, i) => OsuPortfolioComponent(content, i))}
     </section>
   );

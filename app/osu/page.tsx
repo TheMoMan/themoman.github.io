@@ -8,7 +8,6 @@ export default function Osu() {
     <div className="mx-auto">
       <OsuHeader />
       <OsuNav activePage="/osu" />
-      <div className="flex justify-center">Images are placeholders</div>
       {/* <OsuBlurb /> */}
       <hr/>
       <OsuPortfolio />

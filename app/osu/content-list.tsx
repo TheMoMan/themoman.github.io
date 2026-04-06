@@ -15,9 +15,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ayla-1_qvfkit",
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ayla-2_gf1br0",
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ayla-3_gdfq1k",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ayla-1_yjdlaj",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ayla-2_bfll71",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ayla-3_ngmloa",
     ],
     date: "2022 Jul 07",
     text: (
@@ -41,9 +41,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kafka-1_r3bs8w",
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kafka-2_mmhioa",
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kafka-3_o7ypoa",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kafka-1_yqowfs",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kafka-2_j3ee3k",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kafka-3_zbirxz",
     ],
     date: "2021 Jan 02",
     text: (
@@ -67,7 +67,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/senpai-temp_jxpppr",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/senpai-1_hpeonh",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/senpai-2_ymt3u9",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/senpai-3_cthgnf",
     ],
     date: "2019 Jun 04",
     text: (
@@ -87,7 +89,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ochiteiru-temp_mc8qd4",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ochiteiru-1_mwohgl",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ochiteiru-2_gmp1kc",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/ochiteiru-3_sjqatm",
     ],
     date: "2019 Jan 07",
     text: (
@@ -111,8 +115,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/rainfall-temp-1_sz8pdn",
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/rainfall-temp-2_jf3grh",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/rainfall-1_a4orf6",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/rainfall-2_vunepc",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/rainfall-3_uyvlsm",
     ],
     date: "2018 Nov 05",
     text: (
@@ -140,8 +145,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/zetsubou-temp-1_lvhydk",
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/zetsubou-temp-2_yrwq4x",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/zetsubou-1_s7atry",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/zetsubou-2_spz2k3",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/zetsubou-3_rc1tvw",
     ],
     date: "2017 Oct 12",
     text: (
@@ -169,7 +175,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/sakigake-temp_snvfra",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/sakigake-1_qeiyqx",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/sakigake-2_psioke",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/sakigake-3_g7grrj",
     ],
     date: "2017 Aug 17",
     text: (
@@ -189,7 +197,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/hatenaki-temp_dhtm27",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/hatenaki-1_ebwwh0",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/hatenaki-2_gqmzig",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/hatenaki-3_eb5bql",
     ],
     date: "2016 Oct 23",
     text: (
@@ -209,7 +219,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/shissou-temp_wmfo19",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/shissou-1_zzuujx",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/shissou-2_k1r49p",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/shissou-3_pgorc8",
     ],
     date: "2016 Apr 03",
     text: (
@@ -229,7 +241,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/nosete-temp_mjtwkd",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/nosete-1_she06t",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/nosete-2_xhvgso",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/nosete-3_iqqegc",
     ],
     date: "2015 Nov 12",
     text: (
@@ -249,7 +263,9 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
       },
     ],
     images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/shinkai-temp_w3oxgk",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/komete-1_wd8zbv",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/komete-2_jabhwh",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/komete-3_bcbrk2",
     ],
     date: "2015 May 21",
     text: (
