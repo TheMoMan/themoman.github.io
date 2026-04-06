@@ -1,7 +1,7 @@
-import { OsuBlurb } from "./blurb";
 import { OsuHeader } from "./header";
 import { OsuNav } from "./nav";
-import { OsuPortfolio } from "./portfolio";
+import { Portfolio } from "../../components/sections/portfolio";
+import { OSU_PORTFOLIO_CONTENT } from "./osu-portfolio-content";
 
 export default function Osu() {
   return (
@@ -10,7 +10,7 @@ export default function Osu() {
       <OsuNav activePage="/osu" />
       {/* <OsuBlurb /> */}
       <hr/>
-      <OsuPortfolio />
+      <Portfolio content={OSU_PORTFOLIO_CONTENT} />
     </div>
   )
 }

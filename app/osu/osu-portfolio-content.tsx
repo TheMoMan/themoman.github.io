@@ -1,9 +1,9 @@
-import { OsuPortfolioContent } from "./portfolio";
+import { PortfolioContent } from "../../components/sections/portfolio";
 
-export const CONTENT_LIST: OsuPortfolioContent[] = [
+export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   {
-    name: "M2U - Ayla",
-    alternateName: "M2U - Ayla",
+    header: "M2U - Ayla",
+    subHeader: "M2U - Ayla",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/1280192",
@@ -28,8 +28,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "senya - Kafka Naru Gunjou e",
-    alternateName: "senya - カフカなる群青へ",
+    header: "senya - Kafka Naru Gunjou e",
+    subHeader: "senya - カフカなる群青へ",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/1030134",
@@ -54,8 +54,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "HoneyWorks meets TrySail - Senpai.",
-    alternateName: "HoneyWorks meets TrySail - センパイ。",
+    header: "HoneyWorks meets TrySail - Senpai.",
+    subHeader: "HoneyWorks meets TrySail - センパイ。",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/844351",
@@ -80,8 +80,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "CHiCO with HoneyWorks - Sekai wa Koi ni Ochiteiru",
-    alternateName: "CHiCO with HoneyWorks - 世界は恋に落ちている",
+    header: "CHiCO with HoneyWorks - Sekai wa Koi ni Ochiteiru",
+    subHeader: "CHiCO with HoneyWorks - 世界は恋に落ちている",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/549977",
@@ -102,8 +102,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "CHiCO with HoneyWorks - Nostalgic Rainfall",
-    alternateName: "CHiCO with HoneyWorks - ノスタルジックレインフォール",
+    header: "CHiCO with HoneyWorks - Nostalgic Rainfall",
+    subHeader: "CHiCO with HoneyWorks - ノスタルジックレインフォール",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/786665",
@@ -128,8 +128,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "senya - Zetsubou no Fuchi",
-    alternateName: "senya - 絶望の淵",
+    header: "senya - Zetsubou no Fuchi",
+    subHeader: "senya - 絶望の淵",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/605290",
@@ -158,8 +158,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "senya - Shounen yo, Tokkou no Sakigake to Nare",
-    alternateName: "senya - 少年よ、特攻の魁となれ",
+    header: "senya - Shounen yo, Tokkou no Sakigake to Nare",
+    subHeader: "senya - 少年よ、特攻の魁となれ",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/562169",
@@ -188,8 +188,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "Shoujo Fractal - Hatenaki Kaze no Kiseki sae",
-    alternateName: "少女フラクタル - 果てなき風の軌跡さえ",
+    header: "Shoujo Fractal - Hatenaki Kaze no Kiseki sae",
+    subHeader: "少女フラクタル - 果てなき風の軌跡さえ",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/463701",
@@ -210,8 +210,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "senya - Shissou Suru Kanashimi no Naka de",
-    alternateName: "senya - 疾走する悲しみの中で",
+    header: "senya - Shissou Suru Kanashimi no Naka de",
+    subHeader: "senya - 疾走する悲しみの中で",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/347460",
@@ -232,8 +232,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "senya - Kimi o Nosete",
-    alternateName: "senya - キミを乗せて",
+    header: "senya - Kimi o Nosete",
+    subHeader: "senya - キミを乗せて",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/288997",
@@ -254,8 +254,8 @@ export const CONTENT_LIST: OsuPortfolioContent[] = [
     )
   },
   {
-    name: "senya - Shinkai yori Ai o Komete",
-    alternateName: "senya - 深海より愛を込めて",
+    header: "senya - Shinkai yori Ai o Komete",
+    subHeader: "senya - 深海より愛を込めて",
     links: [
       {
         url: "https://osu.ppy.sh/beatmapsets/223048",

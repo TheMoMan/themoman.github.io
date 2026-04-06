@@ -1,36 +1,54 @@
 "use client";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import React, { JSX } from "react";
-import { CONTENT_LIST } from "./content-list";
-import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useInView } from "@/hooks/useInView";
 import { CarouselDots } from "@/components/ui/carousel-dots";
 
-export interface OsuPortfolioContent {
-  name: string;
-  alternateName?: string;
-  links: OsuPortfolioExtraLinks[];
+export interface PortfolioProps {
+  content: PortfolioContent[];
+  itemLoadThreshold?: number;
+}
+
+export interface PortfolioContent {
+  header: string;
+  subHeader?: string;
   date: string;
+  links: PortfolioLinks[];
   text: React.ReactNode;
   images?: string[];
 }
 
-interface OsuPortfolioExtraLinks {
+interface PortfolioLinks {
   url: string;
   label: string;
 }
 
-export function OsuPortfolio() {
+export function Portfolio({
+  content,
+  itemLoadThreshold,
+}: PortfolioProps) {
   return (
     <section className="max-w-5xl mx-auto px-2">
-      {CONTENT_LIST.map((content, i) => OsuPortfolioComponent(content, i))}
+      {
+        content.map(
+          (content, i) => PortfolioItem(
+            content,
+            i,
+            itemLoadThreshold,
+          )
+        )
+      }
     </section>
   );
 }
 
-function OsuPortfolioComponent(content: OsuPortfolioContent, index: number) {
-  const { ref, isInView } = useInView({ threshold: 0.50 });
+function PortfolioItem(
+  content: PortfolioContent,
+  index: number,
+  itemLoadThreshold = 0.50,
+) {
+  const { ref, isInView } = useInView({ threshold: itemLoadThreshold });
 
   const getCarouselItem = (children: React.ReactNode, key: React.Key) => {
     return (
@@ -57,7 +75,7 @@ function OsuPortfolioComponent(content: OsuPortfolioContent, index: number) {
 
     return content.images.map(
       (url, i) => getCarouselItem(
-        <img src={url} alt={`${content.name} - screenshot ${i + 1}`} className="object-cover" />,
+        <img src={url} alt={`${content.header} - screenshot ${i + 1}`} className="object-cover" />,
         i,
       )
     );
@@ -72,7 +90,7 @@ function OsuPortfolioComponent(content: OsuPortfolioContent, index: number) {
 
   const mapsetUrl = content.links.find((link) => link.label === "Mapset");
 
-  const getExtraLinks = (link: OsuPortfolioExtraLinks) => {
+  const getExtraLinks = (link: PortfolioLinks) => {
     return (
       <a href={link.url} className="underline px-0.5" key={link.label}>
         {link.label}
@@ -114,10 +132,10 @@ function OsuPortfolioComponent(content: OsuPortfolioContent, index: number) {
           )}
         >
           <a href={mapsetUrl?.url} className="font-serif text-xl underline">
-            {content.name}
+            {content.header}
           </a>
           <div className="font-serif text-xs text-highlight leading-1.8 pb-1">
-            {content.alternateName}
+            {content.subHeader}
           </div>
           <div className="font-serif text-xs pb-1 text-highlight">
             {content.date}
