@@ -2,6 +2,58 @@ import { PortfolioContent } from "../../components/sections/portfolio";
 
 export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   {
+    header: "senya - Yureru Koi wa Nami no Gotoku (Autobahn Remix)",
+    subHeader: "senya - 揺れる恋は波の如く (Autobahn Remix)",
+    links: [
+      {
+        url: "https://osu.ppy.sh/beatmapsets/1867693",
+        label: "Mapset",
+      },
+      {
+        url: "https://github.com/TheMoMan/osu.storyboards/tree/master/Yureru",
+        label: "Code",
+      },
+    ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-1_vzq72q",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-2_xm7bdo",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-3_wko8nj",
+    ],
+    date: "ETA 2026",
+    text: (
+      <>
+        <p>Twin mapping and dual-layer audio spectrum from scratch.</p>
+        <p>Featured in osu! World Cup 2022 - Round of 32 DT3</p>
+      </>
+    )
+  },
+  {
+    header: "earthmind - Kaleidoscope",
+    subHeader: "earthmind - Kaleidoscope",
+    links: [
+      {
+        url: "https://osu.ppy.sh/beatmapsets/2494060",
+        label: "Mapset",
+      },
+      {
+        url: "https://github.com/TheMoMan/osu.storyboards/tree/master/Kaleidoscope",
+        label: "Code",
+      },
+    ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kaleidoscope-1_cpxvju",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kaleidoscope-2_lyr7mj",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kaleidoscope-3_fgwi8c",
+    ],
+    date: "ETA 2026",
+    text: (
+      <>
+        <p>Simplistic visuals and stop-start movements.</p>
+        <p>Featured in Noisepit Showmatch 2026 - HD1</p>
+      </>
+    )
+  },
+  {
     header: "M2U - Ayla",
     subHeader: "M2U - Ayla",
     links: [
