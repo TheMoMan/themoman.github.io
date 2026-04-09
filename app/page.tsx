@@ -1,7 +1,7 @@
 import { Hero } from "@/components/display/hero";
 import { RainCanvas } from "@/components/graphics/rain/rain-canvas";
-import { Presence } from "@/components/ui/presence";
-import { Projects } from "@/components/ui/projects";
+import { Presence } from "@/components/sections/presence";
+import { Projects } from "@/components/sections/projects";
 import ScrollDownIndicator from "@/components/ui/scroll-indicator";
 import { cn } from "@/lib/utils";
 

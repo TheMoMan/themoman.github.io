@@ -10,7 +10,7 @@ interface FogLayerProps {
 
 export function Fog() {
   return (
-    <div className="absolute inset-0 z-[5]">
+    <div className="absolute inset-0 z-5">
       <FogLayer
         className="animate-fog-slow scale-100"
         colour="255, 255, 255"
