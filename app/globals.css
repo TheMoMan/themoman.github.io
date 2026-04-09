@@ -67,45 +67,11 @@
     }
   }
 
-  --animate-fly-through-left-right: fly-through-left-right 4s ease-in-out forwards;
-
-  @keyframes fly-through-left-right {
-    0% {
-      transform: translateX(-150%);
-      opacity: 0;
-    }
-
-    15% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    85% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateX(150%);
-      opacity: 0;
-    }
-  }
-
   --animate-caret: caret-blink 1s steps(1, jump-end) infinite;
 
   @keyframes caret-blink {
     50% {
       opacity: 0%;
-    }
-  }
-
-  /* More animations */
-
-  --animate-fade-in-fast: fade-in 150ms linear forwards;
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
     }
   }
 

@@ -1,5 +1,6 @@
 "use client";
-import { Dispatch, SetStateAction, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 import { IconType } from "react-icons";
 import { FaEnvelope, FaGithub } from "react-icons/fa";
 import { SiBluesky, SiOsu, SiYoutube } from "react-icons/si";
@@ -12,7 +13,12 @@ interface PresenceProps {
   icon: IconType;
 }
 
-const presenceList = [
+interface PresenceIconProps {
+  presence: PresenceProps;
+  setActivePresence: (presence?: PresenceProps) => void;
+}
+
+const presenceList: PresenceProps[] = [
   {
     url: "mailto:mail@a-mo.io",
     label: "mail@a-mo.io",
@@ -54,14 +60,12 @@ export function Presence() {
   const [activePresence, setActivePresence] = useState<PresenceProps>();
 
   const getLabel = () => {
-    if (!activePresence) return <></>;
+    const { label, labelLeft, labelRight } = activePresence!;
 
-    const { label, labelLeft, labelRight } = activePresence;
-
-    if (label) return <div className="animate-fade-in-fast">{label}</div>;
+    if (label) return <div>{label}</div>;
 
     return (
-      <div className="grid grid-cols-[1fr_auto_1fr] animate-fade-in-fast" key={labelLeft! + labelRight!}>
+      <div className="grid grid-cols-[1fr_auto_1fr]">
         <div className="text-right">{labelLeft}</div>
         <div className="px-2">|</div>
         <div className="text-left">{labelRight}</div>
@@ -70,21 +74,39 @@ export function Presence() {
   };
 
   return (
-    <div className="grid flex justify-center py-12">
+    <div className="grid justify-center py-12">
       <div className="flex justify-center min-h-16 text-xl">
-        {getLabel()}
+        <AnimatePresence mode="popLayout">
+          {activePresence && (
+            <motion.div
+              key={activePresence.url}
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 100 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              {getLabel()}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       <div className="flex flex-wrap justify-center">
-        {presenceList.map((presence) => PresenceIcon(presence, setActivePresence))}
+        {presenceList.map((presence) =>
+          <PresenceIcon
+            presence={presence}
+            setActivePresence={setActivePresence}
+            key={presence.url}
+          />
+        )}
       </div>
     </div>
   );
 }
 
-function PresenceIcon(
-  presence: PresenceProps,
-  setActivePresence: Dispatch<SetStateAction<PresenceProps | undefined>>,
-) {
+function PresenceIcon({
+  presence,
+  setActivePresence,
+}: PresenceIconProps) {
   const { url, icon: Icon, label, labelLeft, labelRight } = presence;
 
   const onMouseOver = () => {
@@ -97,7 +119,6 @@ function PresenceIcon(
 
   return (
     <a
-      key={url}
       href={url}
       className="px-3 text-white/50 hover:text-white transition-colors duration-150"
       onMouseOver={onMouseOver}

@@ -2,12 +2,11 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import React, { JSX } from "react";
 import { cn } from "@/lib/utils";
-import { useInView } from "@/hooks/use-in-view";
 import { CarouselDots } from "@/components/ui/carousel-dots";
+import { motion } from "motion/react";
 
 export interface PortfolioProps {
   content: PortfolioContent[];
-  itemLoadThreshold?: number;
 }
 
 export interface PortfolioContent {
@@ -24,32 +23,29 @@ interface PortfolioLinks {
   label: string;
 }
 
+interface PortfolioItemProps {
+  content: PortfolioContent,
+  index: number,
+}
+
 export function Portfolio({
   content,
-  itemLoadThreshold,
 }: PortfolioProps) {
   return (
     <section className="max-w-5xl mx-auto px-2">
       {
         content.map(
-          (content, i) => PortfolioItem(
-            content,
-            i,
-            itemLoadThreshold,
-          )
+          (contentItem, i) => <PortfolioItem content={contentItem} index={i} key={i} />,
         )
       }
     </section>
   );
 }
 
-function PortfolioItem(
-  content: PortfolioContent,
-  index: number,
-  itemLoadThreshold = 0.50,
-) {
-  const { ref, isInView } = useInView({ threshold: itemLoadThreshold });
-
+function PortfolioItem({
+  content,
+  index,
+}: PortfolioItemProps) {
   const getCarouselItem = (children: React.ReactNode, key: React.Key) => {
     return (
       <CarouselItem key={key}>
@@ -83,11 +79,6 @@ function PortfolioItem(
 
   const reverse = index % 2 === 1;
 
-  const loadFromLeft = isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-15";
-  const loadFromRight = isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-15";
-  const leftClass = cn(loadFromLeft, "sm:order-1 sm:text-right");
-  const rightClass = cn(loadFromRight, "sm:order-2 sm:text-left");
-
   const mapsetUrl = content.links.find((link) => link.label === "Mapset");
 
   const getExtraLinks = (link: PortfolioLinks) => {
@@ -99,13 +90,16 @@ function PortfolioItem(
   };
 
   return (
-    <div key={index} ref={ref}>
+    <div key={index}>
       <div className="grid grid-cols-1 sm:grid-cols-2 my-6">
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: reverse ? 60 : -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ amount: 0.33, once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className={cn(
             "px-2",
-            "transition-all duration-1000",
-            reverse ? rightClass : leftClass,
+            reverse ? "sm:order-2 sm:text-left" : "sm:order-1 sm:text-right",
           )}
         >
           <Carousel opts={{ loop: true }}>
@@ -120,12 +114,16 @@ function PortfolioItem(
             )}
             <CarouselDots />
           </Carousel>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: reverse ? -60 : 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ amount: 0.33, once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className={cn(
-            "flex flex-col transition-all duration-1000",
-            reverse ? leftClass : rightClass,
+            "flex flex-col",
+            reverse ? "sm:order-1 sm:text-right" : "sm:order-2 sm:text-left",
           )}
         >
           <a href={mapsetUrl?.url} className="font-serif text-xl underline">
@@ -147,7 +145,7 @@ function PortfolioItem(
           <div className="text-xs text-tint pt-2 mt-auto">
             {content.links.map((link) => getExtraLinks(link))}
           </div>
-        </div>
+        </motion.div>
       </div>
       <hr />
     </div>
