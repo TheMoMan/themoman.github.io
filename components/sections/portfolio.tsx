@@ -2,7 +2,7 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import React, { JSX } from "react";
 import { cn } from "@/lib/utils";
-import { useInView } from "@/hooks/useInView";
+import { useInView } from "@/hooks/use-in-view";
 import { CarouselDots } from "@/components/ui/carousel-dots";
 
 export interface PortfolioProps {
