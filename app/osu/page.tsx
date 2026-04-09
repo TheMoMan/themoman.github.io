@@ -6,11 +6,11 @@ import { SiOsu } from "react-icons/si";
 
 const osuNavLinks: NavLink[] = [
   {
-    loc: "/",
+    href: "/",
     label: "Home",
   },
   {
-    loc: "/osu",
+    href: "/osu",
     label: "My maps"
   }
 ];

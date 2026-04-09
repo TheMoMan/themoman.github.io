@@ -4,7 +4,7 @@ interface NavProps {
 }
 
 export interface NavLink {
-  loc: string;
+  href: string;
   label: string;
 }
 
@@ -13,10 +13,10 @@ export function Nav({
   activePage,
 }: NavProps) {
   const navLink = (link: NavLink) => {
-    if (activePage === link.loc) {
+    if (activePage === link.href) {
       return (
         <span
-        key={link.loc}
+        key={link.href}
         className="px-2 font-bold"
         >
           {link.label}
@@ -26,8 +26,8 @@ export function Nav({
 
     return (
       <a
-        key={link.loc}
-        href={link.loc}
+        key={link.href}
+        href={link.href}
         className="px-2 underline"
 
       >
