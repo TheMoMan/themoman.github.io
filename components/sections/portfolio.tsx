@@ -32,7 +32,7 @@ export function Portfolio({
   content,
 }: PortfolioProps) {
   return (
-    <section className="max-w-5xl mx-auto px-2 py-1 bg-card/10">
+    <section className="max-w-5xl mx-auto py-1 bg-card/10">
       {
         content.map(
           (contentItem, i) => <PortfolioItem content={contentItem} index={i} key={i} />,
@@ -49,15 +49,13 @@ function PortfolioItem({
   const getCarouselItem = (children: React.ReactNode, key: React.Key) => {
     return (
       <CarouselItem key={key}>
-        <div className="px-5">
-          <div
-            className={cn(
-              "aspect-video relative overflow-hidden rounded-lg",
-              "bg-gray-800 flex items-center justify-center", // Classes for placeholder
-            )}
-          >
-            {children}
-          </div>
+        <div
+          className={cn(
+            "aspect-video relative overflow-hidden rounded-lg",
+            "bg-gray-800 flex items-center justify-center", // Classes for placeholder
+          )}
+        >
+          {children}
         </div>
       </CarouselItem>
     );
@@ -83,7 +81,7 @@ function PortfolioItem({
 
   const getExtraLinks = (link: PortfolioLinks) => {
     return (
-      <a href={link.url} className="underline px-0.5" key={link.label}>
+      <a href={link.url} className="underline" key={link.label}>
         {link.label}
       </a>
     );
@@ -91,14 +89,14 @@ function PortfolioItem({
 
   return (
     <div key={index}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 my-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 my-6 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, x: reverse ? 60 : -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ amount: 0.33, once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className={cn(
-            "px-2",
+            "px-5 sm:px-2",
             reverse ? "sm:order-2 sm:text-left" : "sm:order-1 sm:text-right",
           )}
         >
@@ -108,8 +106,8 @@ function PortfolioItem({
             </CarouselContent>
             {content.images?.length && (
               <>
-                <CarouselPrevious className="left-8 translate-x-0 invisible sm:visible" />
-                <CarouselNext className="right-8 translate-x-0 invisible sm:visible" />
+                <CarouselPrevious className="left-3 translate-x-0 invisible sm:visible" />
+                <CarouselNext className="right-3 translate-x-0 invisible sm:visible" />
               </>
             )}
             <CarouselDots />
@@ -122,7 +120,7 @@ function PortfolioItem({
           viewport={{ amount: 0.33, once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className={cn(
-            "flex flex-col",
+            "flex flex-col px-5 sm:px-2",
             reverse ? "sm:order-1 sm:text-right" : "sm:order-2 sm:text-left",
           )}
         >
@@ -142,7 +140,10 @@ function PortfolioItem({
           <div className="text-tint space-y-1.5 leading-4.5">
             {content.text}
           </div>
-          <div className="text-xs text-tint pt-2 mt-auto">
+          <div className={cn(
+            "flex gap-1 text-xs text-tint pt-2 mt-auto",
+            reverse ? "sm:justify-end" : "sm:justify-start",
+          )}>
             {content.links.map((link) => getExtraLinks(link))}
           </div>
         </motion.div>
