@@ -85,7 +85,9 @@ export function Presence() {
               exit={{ opacity: 0, x: 100 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              {getLabel()}
+              <a href={activePresence.url}>
+                {getLabel()}
+              </a>
             </motion.div>
           )}
         </AnimatePresence>
@@ -125,6 +127,7 @@ function PresenceIcon({
       onMouseLeave={onMouseLeave}
       onFocus={onMouseOver}
       onBlur={onMouseLeave}
+      onTouchStart={onMouseOver}
       aria-label={label ?? `${labelLeft}, ${labelRight}`}
     >
       <Icon

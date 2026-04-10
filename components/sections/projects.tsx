@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import { useEffect, useRef, useState } from "react";
 import { hover, motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { BsChevronCompactDown } from "react-icons/bs";
 
 interface ProjectCardProps {
   title: string;
@@ -15,7 +16,7 @@ interface ProjectCardProps {
 const PROJECT_ITEMS: ProjectCardProps[] = [
   {
     title: "osu! mapping",
-    description: "AKA: Interactive audiovisual projects",
+    description: "AKA: Interactive audiovisual media",
     href: "/osu",
   },
   {
@@ -77,12 +78,22 @@ export function ProjectCard({
     setIsExpanded(false);
   };
 
+  const handleChevronClick = () => {
+    setIsExpanded((prev) => !prev);
+  };
+
   const card = (
     <Card
       ref={ref}
       className={cn(!href && "opacity-60")}
+      tabIndex={href ? undefined : 0}
     >
-      <CardHeader className="font-serif text-xl text-gray-500">
+      <CardHeader
+        className={cn(
+          "font-serif text-xl text-gray-500",
+          href && "underline",
+        )}
+      >
         {title}
       </CardHeader>
       <motion.div
@@ -115,6 +126,10 @@ export function ProjectCard({
       onBlur={handleBlur}
     >
       {cardWithLink ?? card}
+      <BsChevronCompactDown
+        className="mx-auto cursor-pointer opacity-50"
+        onClick={handleChevronClick}
+      />
     </div>
   );
 }
