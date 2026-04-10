@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface NavProps {
   links: NavLink[];
   activePage?: string;
@@ -25,14 +27,14 @@ export function Nav({
     }
 
     return (
-      <a
+      <Link
         key={link.href}
         href={link.href}
         className="px-2 underline"
 
       >
         {link.label}
-      </a>
+      </Link>
     );
   };
 

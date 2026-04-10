@@ -1,22 +1,120 @@
+"use client";
+
+import Link from "next/link";
+import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { useEffect, useRef, useState } from "react";
+import { hover, motion } from "motion/react";
+import { cn } from "@/lib/utils";
+
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  href?: string;
+}
+
+const PROJECT_ITEMS: ProjectCardProps[] = [
+  {
+    title: "osu! mapping",
+    description: "AKA: Interactive audiovisual projects",
+    href: "/osu",
+  },
+  {
+    title: "Coding",
+    description: "Coming soon",
+  },
+  {
+    title: "YouTube",
+    description: "Coming soon",
+  },
+];
+
 export function Projects() {
   return (
-    <section className="font-serif text-xl mt-[30vh] sm:mt-[20vh]">
+    <section className="font-serif text-xl mt-[30vh] sm:mt-[20vh] max-w-5xl w-full mx-auto">
       <div className="pb-2 text-highlight text-center">
         Things I've done
       </div>
-      <ul className="list-disc columns-1 mx-auto max-w-fit text-left">
-        <li>
-          <a href={"/osu"} className="underline">osu! mapping</a>
-        </li>
-        <li>
-          <span>Programming</span>
-          <span className="text-xs pl-2">wip</span>
-        </li>
-        <li>
-          <span>YouTube</span>
-          <span className="text-xs pl-2">wip</span>
-        </li>
-      </ul>
+      <div className="flex flex-wrap justify-center mt-4 gap-5">
+        {
+          PROJECT_ITEMS.map((project) =>
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              href={project.href}
+              key={project.title}
+            />
+          )
+        }
+      </div>
     </section>
+  );
+}
+
+export function ProjectCard({
+  title,
+  description,
+  href,
+}: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const isTouch = useRef(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    return hover(ref.current, () => {
+      if (isTouch.current) return;
+      setIsExpanded(true);
+
+      return () => setIsExpanded(false);
+    });
+  }, []);
+
+  const handleFocus = () => {
+    setIsExpanded(true);
+  };
+
+  const handleBlur = () => {
+    setIsExpanded(false);
+  };
+
+  const card = (
+    <Card
+      ref={ref}
+      className={cn(!href && "opacity-60")}
+    >
+      <CardHeader className="font-serif text-xl text-gray-500">
+        {title}
+      </CardHeader>
+      <motion.div
+        initial={{ height: 0 }}
+        animate={{ height: isExpanded ? "auto" : 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="overflow-hidden"
+        key={title}
+      >
+        <CardContent className="font-sans">
+          {description}
+        </CardContent>
+      </motion.div>
+    </Card>
+  );
+
+  const cardWithLink = href && (
+    <Link
+      href={href}
+      className="[:hover]"
+    >
+      {card}
+    </Link>
+  );
+
+  return (
+    <div
+      className="max-w-60 min-h-30 w-full"
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    >
+      {cardWithLink ?? card}
+    </div>
   );
 }
