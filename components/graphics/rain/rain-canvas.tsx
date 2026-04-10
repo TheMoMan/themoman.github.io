@@ -30,7 +30,7 @@ export function RainCanvas({
       ref={canvasRef}
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute inset-0 h-full w-full",
+        "pointer-events-none absolute inset-0 h-full w-full -z-100",
         className,
       )}
     />

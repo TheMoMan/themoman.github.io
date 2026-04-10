@@ -21,11 +21,11 @@ const PROJECT_ITEMS: ProjectCardProps[] = [
   },
   {
     title: "Coding",
-    description: "Coming soon",
+    description: "WIP",
   },
   {
     title: "YouTube",
-    description: "Coming soon",
+    description: "WIP",
   },
 ];
 
@@ -37,13 +37,21 @@ export function Projects() {
       </div>
       <div className="flex flex-wrap justify-center mt-4 gap-5">
         {
-          PROJECT_ITEMS.map((project) =>
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              href={project.href}
+          PROJECT_ITEMS.map((project, index) =>
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.5, once: true }}
+              transition={{ duration: 0.5, ease: "backOut", delay: index * 0.2 }}
               key={project.title}
-            />
+              className="max-w-60 min-h-30 w-full"
+            >
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                href={project.href}
+              />
+            </motion.div>
           )
         }
       </div>
@@ -85,7 +93,7 @@ export function ProjectCard({
   const card = (
     <Card
       ref={ref}
-      className={cn(!href && "opacity-60")}
+      className={cn(href ? "opacity-80" : "opacity-50")}
       tabIndex={href ? undefined : 0}
     >
       <CardHeader
@@ -113,7 +121,6 @@ export function ProjectCard({
   const cardWithLink = href && (
     <Link
       href={href}
-      className="[:hover]"
     >
       {card}
     </Link>
@@ -121,7 +128,6 @@ export function ProjectCard({
 
   return (
     <div
-      className="max-w-60 min-h-30 w-full"
       onFocus={handleFocus}
       onBlur={handleBlur}
     >
