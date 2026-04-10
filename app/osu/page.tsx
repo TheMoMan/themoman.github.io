@@ -3,6 +3,7 @@ import { Nav, NavLink } from "../../components/sections/nav";
 import { Portfolio } from "../../components/sections/portfolio";
 import { OSU_PORTFOLIO_CONTENT } from "./osu-portfolio-content";
 import { SiOsu } from "react-icons/si";
+import { FireflyCanvas } from "@/components/graphics/firefly/firefly-canvas";
 
 const osuNavLinks: NavLink[] = [
   {
@@ -30,6 +31,7 @@ export default function Osu() {
       {/* <OsuBlurb /> */}
       <hr />
       <Portfolio content={OSU_PORTFOLIO_CONTENT} />
+      <FireflyCanvas fireflyCount={30} />
     </div>
   );
 }

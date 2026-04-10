@@ -74,7 +74,7 @@ export function useRain(
       const deltaTime = timestamp - prevTimestamp;
       prevTimestamp = timestamp;
 
-      const posScale = deltaTime / 16.67;
+      const timeScale = deltaTime / 16.67;
 
       for (const [i, drop] of drops.entries()) {
         // Draw drop
@@ -89,8 +89,8 @@ export function useRain(
         ctx.stroke();
 
         // Translate drop
-        drop.x += Math.sin(windAngle) * drop.velocity * 0.5 * posScale;
-        drop.y += drop.velocity * posScale;
+        drop.x += Math.sin(windAngle) * drop.velocity * 0.5 * timeScale;
+        drop.y += drop.velocity * timeScale;
 
         // New drop once we reach bottom
         if (drop.y > canvas.height + 20) {

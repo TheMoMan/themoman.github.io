@@ -32,7 +32,7 @@ export function Portfolio({
   content,
 }: PortfolioProps) {
   return (
-    <section className="max-w-5xl mx-auto px-2">
+    <section className="max-w-5xl mx-auto px-2 py-1 bg-card/10">
       {
         content.map(
           (contentItem, i) => <PortfolioItem content={contentItem} index={i} key={i} />,
