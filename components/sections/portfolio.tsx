@@ -164,9 +164,9 @@ function PortfolioItem({
 function PortfolioCarousel({
   content,
   page = 0,
+  isHidden = false,
   onPageChange,
   onExpandClick,
-  isHidden = false,
 }: PortfolioCarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [carouselHidden, setCarouselHidden] = useState(false);
@@ -250,10 +250,24 @@ function PortfolioModal({
   layoutId,
   content,
   page,
-  onClose,
   isActive,
+  onClose,
   onPageChange,
 }: PortfolioModalProps) {
+  useEffect(() => {
+    if (!isActive) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isActive, onClose]);
+
   return (
     <AnimatePresence>
       {isActive && (
