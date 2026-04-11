@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { Card, CardContent, CardHeader } from "../ui/card";
 import { useEffect, useRef, useState } from "react";
 import { hover, motion } from "motion/react";
 import { cn } from "@/lib/utils";

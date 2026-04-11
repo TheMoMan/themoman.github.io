@@ -29,7 +29,6 @@ export default function Osu() {
         </>
       </PageHeader>
       <Nav links={osuNavLinks} activePage="/osu" />
-      {/* <OsuBlurb /> */}
       <hr />
       <Portfolio content={OSU_PORTFOLIO_CONTENT} />
       <FireflyCanvas fireflyCount={30} />

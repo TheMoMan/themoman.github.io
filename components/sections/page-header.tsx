@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { JSX } from "react";
-import { SiOsu } from "react-icons/si";
 
 interface PageHeaderProps {
   backgroundImage?: string;
