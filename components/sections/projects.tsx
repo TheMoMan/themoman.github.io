@@ -20,7 +20,7 @@ const PROJECT_ITEMS: ProjectCardProps[] = [
     href: "/osu",
   },
   {
-    title: "Coding",
+    title: "Programming",
     description: "WIP",
   },
   {
