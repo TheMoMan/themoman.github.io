@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 
 export default function Page() {
   return (
-    <div className="">
+    <div>
+      <title>A Mo</title>
       <Hero />
       <div className={cn(
         "flex flex-col relative z-10 min-h-screen",
@@ -16,10 +17,10 @@ export default function Page() {
         <RainCanvas dropCount={20} />
         <Presence />
         <div className="mx-auto w-1/3">
-          <hr/>
+          <hr />
         </div>
         <Projects />
-        <div className="text-center mt-auto mb-3 text-white/5">Content here soon?</div>
+        <div className="text-center mt-auto mb-3 text-white/5">More content soon?</div>
       </div>
       <ScrollDownIndicator />
     </div>
