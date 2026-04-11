@@ -19,14 +19,14 @@ export function CarouselDots() {
   }, [api]);
 
   return (
-    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+    <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
       {Array.from({ length: count.current }).map((_, index) => (
         <button
           key={index}
           onClick={() => api?.scrollTo(index)}
           className={cn(
             "h-1.5 w-1.5 rounded-full transition-all duration-200",
-            index === current ? "bg-white/60 scale-120" : "bg-white/30",
+            index === current ? "scale-120 bg-white/60" : "bg-white/30",
           )}
         />
       ))}

@@ -1,10 +1,10 @@
 export function OsuBlurb() {
   return (
     <section className="my-4">
-      <div className="text-center pb-2 text-highlight">
+      <div className="pb-2 text-center text-highlight">
         Goals for every map:
       </div>
-      <ul className="list-disc columns-1 mx-auto max-w-fit text-tint">
+      <ul className="mx-auto max-w-fit list-disc columns-1 text-tint">
         <li>Try something new every time.</li>
         <li>Storyboards on every map.</li>
       </ul>

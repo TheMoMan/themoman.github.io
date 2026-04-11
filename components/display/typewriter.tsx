@@ -17,7 +17,9 @@ export function Typewriter({
   startDelayMs = 0,
 }: TypewriterProps) {
   const [currentText, setCurrentText] = useState("");
-  const [mode, setMode] = useState<"waiting" | "typing" | "holding" | "deleting">("waiting");
+  const [mode, setMode] = useState<
+    "waiting" | "typing" | "holding" | "deleting"
+  >("waiting");
 
   const characterIndex = useRef(0);
   const itemIndex = useRef(0);
@@ -68,15 +70,19 @@ export function Typewriter({
     }, timeoutDelay);
 
     return () => clearTimeout(timeoutId);
-
-  }, [items, startDelayMs, typeSpeedMs, deleteSpeedMs, holdDurationMs, currentText, mode]);
+  }, [
+    items,
+    startDelayMs,
+    typeSpeedMs,
+    deleteSpeedMs,
+    holdDurationMs,
+    currentText,
+    mode,
+  ]);
 
   return (
     <>
-      <div
-        className="min-w-37.5 min-h-7"
-        aria-hidden="true"
-      >
+      <div className="min-h-7 min-w-37.5" aria-hidden="true">
         {currentText}
         {!(mode === "waiting") && <span className="animate-caret">|</span>}
       </div>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 interface Firefly {
   x: number;
@@ -26,8 +26,8 @@ function createFirefly(
   return {
     x: Math.random() * canvasWidth,
     y: Math.random() * canvasHeight,
-    velocityX: (Math.random()- 0.5) * 0.5,
-    velocityY: (Math.random()- 0.5) * 0.5,
+    velocityX: (Math.random() - 0.5) * 0.5,
+    velocityY: (Math.random() - 0.5) * 0.5,
     radius: 2,
     opacity: 0,
     maxOpacity: 0.2,
@@ -47,7 +47,7 @@ export function useFirefly(
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animationFrameId: number;
@@ -67,9 +67,8 @@ export function useFirefly(
         fireflyCount = Math.round(fireflyCount / 2);
       }
 
-      fireflies = Array.from(
-        { length: fireflyCount },
-        () => createFirefly(canvas.width, canvas.height),
+      fireflies = Array.from({ length: fireflyCount }, () =>
+        createFirefly(canvas.width, canvas.height),
       );
     };
 
@@ -128,7 +127,7 @@ export function useFirefly(
         }
 
         firefly.currentLifeMs += Math.round(deltaTime);
-      };
+      }
 
       animationFrameId = requestAnimationFrame(loop);
     };

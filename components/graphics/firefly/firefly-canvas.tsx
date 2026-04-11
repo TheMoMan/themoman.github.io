@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import { useFirefly } from './use-firefly';
-import { cn } from '@/lib/utils';
+import { useRef } from "react";
+import { useFirefly } from "./use-firefly";
+import { cn } from "@/lib/utils";
 
 interface FireflyCanvasProps {
   fireflyCount?: number;
@@ -28,7 +28,7 @@ export function FireflyCanvas({
       ref={canvasRef}
       aria-hidden="true"
       className={cn(
-        "pointer-events-none fixed inset-0 h-full w-full -z-100",
+        "pointer-events-none fixed inset-0 -z-100 h-full w-full",
         className,
       )}
     />
