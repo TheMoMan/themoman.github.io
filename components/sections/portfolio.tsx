@@ -186,9 +186,9 @@ function PortfolioCarousel({
     if (isHidden) {
       const timer = setTimeout(() => setCarouselHidden(true), 150);
       return () => clearTimeout(timer);
-    } else {
-      setCarouselHidden(false);
     }
+
+    setCarouselHidden(false);
   }, [isHidden]);
 
   const renderCarouselContent = () => {
