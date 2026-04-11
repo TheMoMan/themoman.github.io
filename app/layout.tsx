@@ -7,24 +7,24 @@ import { cn } from "@/lib/utils";
 const headingFont = Roboto({
   subsets: ["latin"],
   variable: "--font-heading",
-})
+});
 
 const serifFont = PT_Serif({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-serif",
-})
+});
 
 const sansFont = Lato({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-sans",
-})
+});
 
 const monoFont = Source_Code_Pro({
   subsets: ["latin"],
   variable: "--font-mono",
-})
+});
 
 export default function RootLayout({
   children,

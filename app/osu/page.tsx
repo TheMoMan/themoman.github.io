@@ -12,8 +12,8 @@ const osuNavLinks: NavLink[] = [
   },
   {
     href: "/osu",
-    label: "My maps"
-  }
+    label: "My maps",
+  },
 ];
 
 export default function Osu() {
@@ -22,8 +22,8 @@ export default function Osu() {
       <title>osu! mapping - A Mo</title>
       <PageHeader backgroundImage="url('/assets/home.jpg')">
         <>
-          <SiOsu size={196} className="my-auto z-10" />
-          <div className="text-[36px] sm:text-[56px] my-auto font-heading z-10">
+          <SiOsu size={196} className="z-10 my-auto" />
+          <div className="z-10 my-auto font-heading text-[36px] sm:text-[56px]">
             mapping
           </div>
         </>

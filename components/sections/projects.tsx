@@ -31,39 +31,31 @@ const PROJECT_ITEMS: ProjectCardProps[] = [
 
 export function Projects() {
   return (
-    <section className="font-serif text-xl mt-[30vh] sm:mt-[20vh] max-w-5xl w-full mx-auto">
-      <div className="pb-2 text-highlight text-center">
-        Things I've done
-      </div>
-      <div className="flex flex-wrap justify-center mt-4 gap-5">
-        {
-          PROJECT_ITEMS.map((project, index) =>
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: "some", once: true }}
-              transition={{ duration: 0.5, ease: "backOut", delay: index * 0.2 }}
-              key={project.title}
-              className="max-w-60 min-h-30 w-full"
-            >
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                href={project.href}
-              />
-            </motion.div>
-          )
-        }
+    <section className="mx-auto mt-[30vh] w-full max-w-5xl font-serif text-xl sm:mt-[20vh]">
+      <div className="pb-2 text-center text-highlight">Things I've done</div>
+      <div className="mt-4 flex flex-wrap justify-center gap-5">
+        {PROJECT_ITEMS.map((project, index) => (
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: "some", once: true }}
+            transition={{ duration: 0.5, ease: "backOut", delay: index * 0.2 }}
+            key={project.title}
+            className="min-h-30 w-full max-w-60"
+          >
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              href={project.href}
+            />
+          </motion.div>
+        ))}
       </div>
     </section>
   );
 }
 
-export function ProjectCard({
-  title,
-  description,
-  href,
-}: ProjectCardProps) {
+export function ProjectCard({ title, description, href }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const isTouch = useRef(false);
@@ -97,10 +89,7 @@ export function ProjectCard({
       tabIndex={href ? undefined : 0}
     >
       <CardHeader
-        className={cn(
-          "font-serif text-xl text-gray-500",
-          href && "underline",
-        )}
+        className={cn("font-serif text-xl text-gray-500", href && "underline")}
       >
         {title}
       </CardHeader>
@@ -111,26 +100,15 @@ export function ProjectCard({
         className="overflow-hidden"
         key={title}
       >
-        <CardContent className="font-sans">
-          {description}
-        </CardContent>
+        <CardContent className="font-sans">{description}</CardContent>
       </motion.div>
     </Card>
   );
 
-  const cardWithLink = href && (
-    <Link
-      href={href}
-    >
-      {card}
-    </Link>
-  );
+  const cardWithLink = href && <Link href={href}>{card}</Link>;
 
   return (
-    <div
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-    >
+    <div onFocus={handleFocus} onBlur={handleBlur}>
       {cardWithLink ?? card}
       <BsChevronCompactDown
         className="mx-auto cursor-pointer opacity-50"

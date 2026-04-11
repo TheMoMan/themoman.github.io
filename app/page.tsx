@@ -10,17 +10,21 @@ export default function Page() {
     <div>
       <title>A Mo</title>
       <Hero />
-      <div className={cn(
-        "flex flex-col relative z-10 min-h-screen",
-        "bg-[linear-gradient(to_right,var(--color-secondary),var(--color-background)_15%,var(--color-background)_85%,var(--color-secondary))]",
-      )}>
+      <div
+        className={cn(
+          "relative z-10 flex min-h-screen flex-col",
+          "bg-[linear-gradient(to_right,var(--color-secondary),var(--color-background)_15%,var(--color-background)_85%,var(--color-secondary))]",
+        )}
+      >
         <RainCanvas dropCount={20} />
         <Presence />
         <div className="mx-auto w-1/3">
           <hr />
         </div>
         <Projects />
-        <div className="text-center mt-auto mb-3 text-white/5">More content soon?</div>
+        <div className="mt-auto mb-3 text-center text-white/5">
+          More content soon?
+        </div>
       </div>
       <ScrollDownIndicator />
     </div>

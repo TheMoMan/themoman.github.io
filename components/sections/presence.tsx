@@ -75,7 +75,7 @@ export function Presence() {
 
   return (
     <div className="grid justify-center py-12">
-      <div className="flex justify-center min-h-16 text-xl">
+      <div className="flex min-h-16 justify-center text-xl">
         <AnimatePresence mode="popLayout">
           {activePresence && (
             <motion.div
@@ -85,30 +85,25 @@ export function Presence() {
               exit={{ opacity: 0, x: 100 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <a href={activePresence.url}>
-                {getLabel()}
-              </a>
+              <a href={activePresence.url}>{getLabel()}</a>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
       <div className="flex flex-wrap justify-center">
-        {presenceList.map((presence) =>
+        {presenceList.map((presence) => (
           <PresenceIcon
             presence={presence}
             setActivePresence={setActivePresence}
             key={presence.url}
           />
-        )}
+        ))}
       </div>
     </div>
   );
 }
 
-function PresenceIcon({
-  presence,
-  setActivePresence,
-}: PresenceIconProps) {
+function PresenceIcon({ presence, setActivePresence }: PresenceIconProps) {
   const { url, icon: Icon, label, labelLeft, labelRight } = presence;
 
   const onMouseOver = () => {
@@ -122,7 +117,7 @@ function PresenceIcon({
   return (
     <a
       href={url}
-      className="px-3 text-white/50 hover:text-white transition-colors duration-150"
+      className="px-3 text-white/50 transition-colors duration-150 hover:text-white"
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
       onFocus={onMouseOver}
@@ -130,9 +125,7 @@ function PresenceIcon({
       onTouchStart={onMouseOver}
       aria-label={label ?? `${labelLeft}, ${labelRight}`}
     >
-      <Icon
-        size="3.2em"
-      />
+      <Icon size="3.2em" />
     </a>
   );
 }

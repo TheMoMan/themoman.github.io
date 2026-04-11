@@ -32,7 +32,7 @@ export default function ScrollDownIndicator() {
       aria-label="Scroll down"
       className={cn(
         "fixed bottom-6 left-1/2 -translate-x-1/2",
-        "z-50 text-muted-foreground hover:text-foreground transition-colors",
+        "z-50 text-muted-foreground transition-colors hover:text-foreground",
       )}
     >
       <FaChevronDown />

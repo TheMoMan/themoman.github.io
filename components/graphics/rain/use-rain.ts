@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 interface Drop {
   x: number;
@@ -40,7 +40,7 @@ export function useRain(
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animationFrameId: number;
@@ -60,9 +60,8 @@ export function useRain(
         dropCount = Math.round(dropCount / 2);
       }
 
-      drops = Array.from(
-        { length: dropCount },
-        () => createDrop(canvas.width, canvas.height, true),
+      drops = Array.from({ length: dropCount }, () =>
+        createDrop(canvas.width, canvas.height, true),
       );
     };
 
@@ -96,7 +95,7 @@ export function useRain(
         if (drop.y > canvas.height + 20) {
           drops[i] = createDrop(canvas.width, canvas.height);
         }
-      };
+      }
 
       animationFrameId = requestAnimationFrame(loop);
     };

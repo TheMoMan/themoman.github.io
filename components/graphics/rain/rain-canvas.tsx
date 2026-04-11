@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import { useRain } from './use-rain';
-import { cn } from '@/lib/utils';
+import { useRef } from "react";
+import { useRain } from "./use-rain";
+import { cn } from "@/lib/utils";
 
 interface RainCanvasProps {
   dropCount?: number;
@@ -30,7 +30,7 @@ export function RainCanvas({
       ref={canvasRef}
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute inset-0 h-full w-full -z-100",
+        "pointer-events-none absolute inset-0 -z-100 h-full w-full",
         className,
       )}
     />
