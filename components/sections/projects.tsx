@@ -16,7 +16,7 @@ interface ProjectCardProps {
 const PROJECT_ITEMS: ProjectCardProps[] = [
   {
     title: "osu! mapping",
-    description: "AKA: Interactive audiovisual media",
+    description: "AKA: Interactive audiovisual media and level design",
     href: "/osu",
   },
   {
