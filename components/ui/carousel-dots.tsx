@@ -1,15 +1,15 @@
-import React from "react";
+import { useState, useRef, useEffect } from "react";
 import { useCarousel } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
 export function CarouselDots() {
   const { api } = useCarousel();
 
-  const [current, setCurrent] = React.useState(0);
+  const [current, setCurrent] = useState(0);
 
-  const count = React.useRef(0);
+  const count = useRef(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) return;
 
     count.current = api.scrollSnapList().length;

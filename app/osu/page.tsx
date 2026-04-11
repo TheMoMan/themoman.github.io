@@ -18,7 +18,7 @@ const osuNavLinks: NavLink[] = [
 
 export default function Osu() {
   return (
-    <div className="mx-auto">
+    <div className="mx-auto overflow-x-clip">
       <PageHeader backgroundImage="url('/assets/home.jpg')">
         <>
           <SiOsu size={196} className="my-auto z-10" />
