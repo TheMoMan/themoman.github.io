@@ -3,7 +3,7 @@ import { PortfolioContent } from "../../components/sections/portfolio";
 export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   {
     header: "senya - Yureru Koi wa Nami no Gotoku (Autobahn Remix)",
-    subHeader: "senya - 揺れる恋は波の如く (Autobahn Remix)",
+    subHeader: "幽閉カタルシス - 揺れる恋は波の如く (Autobahn Remix)",
     date: "ETA 2026",
     text: (
       <>
@@ -84,7 +84,7 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   },
   {
     header: "senya - Kafka Naru Gunjou e",
-    subHeader: "senya - カフカなる群青へ",
+    subHeader: "幽閉サテライト - カフカなる群青へ",
     date: "2021 Jan 02",
     text: (
       <>
@@ -188,7 +188,7 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   },
   {
     header: "senya - Zetsubou no Fuchi",
-    subHeader: "senya - 絶望の淵",
+    subHeader: "幽閉カタルシス - 絶望の淵",
     date: "2017 Oct 12",
     text: (
       <>
@@ -219,7 +219,7 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   },
   {
     header: "senya - Shounen yo, Tokkou no Sakigake to Nare",
-    subHeader: "senya - 少年よ、特攻の魁となれ",
+    subHeader: "幽閉カタルシス - 少年よ、特攻の魁となれ",
     date: "2017 Aug 17",
     text: (
       <>
@@ -273,7 +273,7 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   },
   {
     header: "senya - Shissou Suru Kanashimi no Naka de",
-    subHeader: "senya - 疾走する悲しみの中で",
+    subHeader: "幽閉カタルシス - 疾走する悲しみの中で",
     date: "2016 Apr 03",
     text: (
       <>
@@ -296,7 +296,7 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   },
   {
     header: "senya - Kimi o Nosete",
-    subHeader: "senya - キミを乗せて",
+    subHeader: "幽閉カタルシス - キミを乗せて",
     date: "2015 Nov 12",
     text: (
       <>
@@ -319,7 +319,7 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   },
   {
     header: "senya - Shinkai yori Ai o Komete",
-    subHeader: "senya - 深海より愛を込めて",
+    subHeader: "幽閉カタルシス - 深海より愛を込めて",
     date: "2015 May 21",
     text: (
       <>
