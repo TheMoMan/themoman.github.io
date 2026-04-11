@@ -41,7 +41,7 @@ export function Projects() {
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.5, once: true }}
+              viewport={{ amount: "some", once: true }}
               transition={{ duration: 0.5, ease: "backOut", delay: index * 0.2 }}
               key={project.title}
               className="max-w-60 min-h-30 w-full"
