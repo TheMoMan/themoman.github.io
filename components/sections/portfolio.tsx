@@ -1,6 +1,6 @@
 "use client";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import React, { JSX, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { CarouselDots } from "@/components/ui/carousel-dots";
 import { AnimatePresence, motion } from "motion/react";
@@ -15,14 +15,15 @@ export interface PortfolioContent {
   header: string;
   subHeader?: string;
   date: string;
-  links: PortfolioLinks[];
   text: React.ReactNode;
+  links: PortfolioLinks[];
   images?: string[];
 }
 
 interface PortfolioLinks {
   url: string;
   label: string;
+  type?: "primary";
 }
 
 interface PortfolioItemProps {
@@ -32,18 +33,18 @@ interface PortfolioItemProps {
 
 interface PortfolioCarouselProps {
   content: PortfolioContent,
-  modalIsActive?: boolean,
-  setModalIsActive?: (active: boolean) => void;
   page?: number;
+  isHidden?: boolean,
   onPageChange: (page: number) => void;
+  onExpandClick?: () => void;
 }
 
 interface PortfolioModalProps {
-  carouselLayoutId?: string,
-  carouselContent?: PortfolioContent;
-  carouselPage: number;
-  setModalIsActive: (active: boolean) => void;
-  active: boolean;
+  layoutId: string,
+  content: PortfolioContent;
+  page: number;
+  isActive: boolean;
+  onClose: () => void;
   onPageChange: (page: number) => void;
 }
 
@@ -75,9 +76,9 @@ function PortfolioItem({
 
   const reverse = index % 2 === 1;
 
-  const mapsetUrl = content.links.find((link) => link.label === "Mapset");
+  const primaryUrl = content.links.find((link) => link.type === "primary");
 
-  const getExtraLinks = (link: PortfolioLinks) => {
+  const renderLinks = (link: PortfolioLinks) => {
     return (
       <a href={link.url} className="underline" key={link.label}>
         {link.label}
@@ -104,11 +105,11 @@ function PortfolioItem({
             layoutId={carouselLayoutId}
           >
             <PortfolioCarousel
-              setModalIsActive={setModalIsActive}
               content={content}
               page={carouselPage}
-              modalIsActive={modalIsActive}
+              isHidden={modalIsActive}
               onPageChange={setCarouselPage}
+              onExpandClick={() => setModalIsActive(true)}
             />
           </motion.div>
         </motion.div>
@@ -123,7 +124,7 @@ function PortfolioItem({
             reverse ? "sm:order-1 sm:text-right" : "sm:order-2 sm:text-left",
           )}
         >
-          <a href={mapsetUrl?.url} className="font-serif text-xl underline">
+          <a href={primaryUrl?.url} className="font-serif text-xl underline">
             {content.header}
           </a>
           {
@@ -143,16 +144,16 @@ function PortfolioItem({
             "flex gap-1 text-xs text-tint pt-2 mt-auto",
             reverse ? "sm:justify-end" : "sm:justify-start",
           )}>
-            {content.links.map((link) => getExtraLinks(link))}
+            {content.links.map((link) => renderLinks(link))}
           </div>
         </motion.div>
       </div>
       <PortfolioModal
-        carouselLayoutId={carouselLayoutId}
-        carouselPage={carouselPage}
-        carouselContent={content}
-        setModalIsActive={setModalIsActive}
-        active={modalIsActive}
+        layoutId={carouselLayoutId}
+        content={content}
+        page={carouselPage}
+        isActive={modalIsActive}
+        onClose={() => setModalIsActive(false)}
         onPageChange={setCarouselPage}
       />
       <hr />
@@ -162,73 +163,64 @@ function PortfolioItem({
 
 function PortfolioCarousel({
   content,
-  setModalIsActive,
-  modalIsActive = false,
   page = 0,
   onPageChange,
+  onExpandClick,
+  isHidden = false,
 }: PortfolioCarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [carouselHidden, setCarouselHidden] = useState(false);
-  const isFirstRender = useRef(true);
 
+  // Page change listener
   useEffect(() => {
     if (!api) return;
 
-    const jump = isFirstRender.current;
-    isFirstRender.current = false;
+    api.on("select", () => onPageChange(api.selectedScrollSnap()));
+  }, [onPageChange, api]);
+
+  // Sync page changes between carousels
+  useEffect(() => {
+    if (!api) return;
+
+    // Jump if pages are de-synced (e.g. when opening the modal)
+    const jump = api.selectedScrollSnap() !== page;
 
     api.scrollTo(page, jump);
-
-    api.on("select", () => onPageChange(api.selectedScrollSnap()));
   }, [api, page]);
 
+  // Delay invisible so it doesn't blink during animation
   useEffect(() => {
-    // Delay invisible so it doesn't blink during animation
-    if (modalIsActive) {
+    if (isHidden) {
       const timer = setTimeout(() => setCarouselHidden(true), 150);
       return () => clearTimeout(timer);
     } else {
       setCarouselHidden(false);
     }
-  }, [modalIsActive]);
+  }, [isHidden]);
 
-  const getCarouselItem = (children: React.ReactNode, key: React.Key) => {
-    return (
-      <CarouselItem key={key}>
-        <div
-          className={cn(
-            "aspect-video relative overflow-hidden rounded-lg",
-            "bg-gray-800 flex items-center justify-center", // Classes for placeholder
-          )}
-        >
-          {children}
-        </div>
-      </CarouselItem>
-    );
-  };
-
-  const getCarouselContent = (): JSX.Element[] => {
+  const renderCarouselContent = () => {
     if (!content.images) {
       // Use placeholders
-      return [1, 2, 3].map((value, i) => (getCarouselItem(value, i)));
+      return [1, 2, 3].map((value, i) => (
+        <CarouselItem key={i} className="bg-gray-800 flex items-center justify-center">{value}</CarouselItem>
+      ));
     }
-
-    const handleClick = () => {
-      setModalIsActive?.(true);
-    };
 
     return content.images.map(
       (url, i) => {
         const alt = `${content.header} - screenshot ${i + 1}`;
 
-        return getCarouselItem(
-          <img
-            src={url}
-            alt={alt}
-            onClick={handleClick}
-            className="object-cover"
-          />,
-          i,
+        return (
+          <CarouselItem key={i}>
+            <div className="aspect-video relative overflow-hidden rounded-lg bg-gray-800">
+              <img
+                src={url}
+                alt={alt}
+                onClick={onExpandClick}
+                className="object-cover"
+              />
+            </div>
+          </CarouselItem>
         );
       },
     );
@@ -238,13 +230,13 @@ function PortfolioCarousel({
     <Carousel
       opts={{ loop: true }}
       setApi={setApi}
-      className={cn(carouselHidden ? "invisible" : "")}
+      className={cn({ invisible: carouselHidden })}
     >
       <CarouselContent>
-        {getCarouselContent()}
+        {renderCarouselContent()}
       </CarouselContent>
-      {content.images?.length && (
-        <div className={cn(modalIsActive ? "invisible" : "invisible sm:visible")}>
+      {!!content.images?.length && (
+        <div className={cn(isHidden ? "invisible" : "invisible sm:visible")}>
           <CarouselPrevious className="left-3 translate-x-0" />
           <CarouselNext className="right-3 translate-x-0" />
         </div>
@@ -255,35 +247,31 @@ function PortfolioCarousel({
 }
 
 function PortfolioModal({
-  carouselLayoutId,
-  carouselContent,
-  carouselPage,
-  setModalIsActive,
-  active,
+  layoutId,
+  content,
+  page,
+  onClose,
+  isActive,
   onPageChange,
 }: PortfolioModalProps) {
-  const handleClose = () => {
-    setModalIsActive(false);
-  };
-
   return (
     <AnimatePresence>
-      {active && carouselLayoutId && carouselContent && (
+      {isActive && (
         <>
           <motion.div
             className="fixed inset-0 bg-black/80 z-90"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={handleClose}
+            onClick={onClose}
           />
           <motion.div
-            layoutId={carouselLayoutId}
+            layoutId={layoutId}
             className="fixed inset-10 z-100 flex items-center justify-center aspect-video max-h-120 m-auto"
           >
             <PortfolioCarousel
-              content={carouselContent}
-              page={carouselPage}
+              content={content}
+              page={page}
               onPageChange={onPageChange}
             />
             <Button
@@ -293,7 +281,7 @@ function PortfolioModal({
               )}
               variant="outline"
               size="sm"
-              onClick={handleClose}
+              onClick={onClose}
             >
               <BsXLg />
             </Button>
