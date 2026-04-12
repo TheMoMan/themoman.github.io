@@ -1,8 +1,9 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavProps {
   links: NavLink[];
-  activePage?: string;
 }
 
 export interface NavLink {
@@ -10,9 +11,11 @@ export interface NavLink {
   label: string;
 }
 
-export function Nav({ links, activePage }: NavProps) {
+export function Nav({ links }: NavProps) {
+  const pathname = usePathname();
+
   const navLink = (link: NavLink) => {
-    if (activePage === link.href) {
+    if (pathname === link.href) {
       return (
         <span key={link.href} className="px-2 font-bold">
           {link.label}

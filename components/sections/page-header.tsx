@@ -11,7 +11,7 @@ export function PageHeader({ backgroundImage, children }: PageHeaderProps) {
     <section
       className={cn(
         "flex justify-center gap-6 px-1 sm:gap-12",
-        "relative h-[30vh] bg-cover bg-fixed bg-position-[center_bottom_17rem]",
+        "relative h-[26vh] bg-cover bg-fixed bg-position-[center_bottom_17rem]",
       )}
       style={{ backgroundImage }}
     >

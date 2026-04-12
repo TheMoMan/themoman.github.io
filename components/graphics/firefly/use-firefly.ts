@@ -18,11 +18,7 @@ interface UseRainOptions {
   enabled: boolean;
 }
 
-function createFirefly(
-  canvasWidth: number,
-  canvasHeight: number,
-  // randomiseLife?: boolean,
-): Firefly {
+function createFirefly(canvasWidth: number, canvasHeight: number): Firefly {
   return {
     x: Math.random() * canvasWidth,
     y: Math.random() * canvasHeight,
@@ -100,6 +96,7 @@ export function useFirefly(
         ctx.arc(x, y, radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(220, 220, 220, ${opacity})`;
         ctx.fill();
+        ctx.filter = "blur(1px)";
 
         // Translate firefly
         firefly.x += velocityX * timeScale;

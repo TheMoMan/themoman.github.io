@@ -13,6 +13,7 @@ import { CarouselDots } from "@/components/ui/carousel-dots";
 import { AnimatePresence, motion } from "motion/react";
 import { BsXLg } from "react-icons/bs";
 import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
 
 export interface PortfolioProps {
   content: PortfolioContent[];
@@ -21,7 +22,7 @@ export interface PortfolioProps {
 export interface PortfolioContent {
   header: string;
   subHeader?: string;
-  date: string;
+  date?: string;
   text: React.ReactNode;
   links: PortfolioLinks[];
   images?: string[];
@@ -56,10 +57,16 @@ interface PortfolioModalProps {
 }
 
 export function Portfolio({ content }: PortfolioProps) {
+  const pathname = usePathname();
+
   return (
     <section className="mx-auto max-w-5xl bg-card/10 py-1">
       {content.map((contentItem, i) => (
-        <PortfolioItem content={contentItem} index={i} key={i} />
+        <PortfolioItem
+          content={contentItem}
+          index={i}
+          key={`${pathname}-${i}`}
+        />
       ))}
     </section>
   );
@@ -125,9 +132,12 @@ function PortfolioItem({ content, index }: PortfolioItemProps) {
               {content.subHeader}
             </div>
           )}
-          <div className="pb-1 font-serif text-xs text-highlight">
-            {content.date}
-          </div>
+          {content.date && (
+            <div className="pb-1 font-serif text-xs text-highlight">
+              {content.date}
+            </div>
+          )}
+
           <div className="space-y-1.5 leading-4.5 text-tint">
             {content.text}
           </div>

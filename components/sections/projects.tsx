@@ -21,11 +21,13 @@ const PROJECT_ITEMS: ProjectCardProps[] = [
   },
   {
     title: "Programming",
-    description: "WIP",
+    description: "Side projects that happen to have code in them",
+    href: "/programming",
   },
   {
-    title: "YouTube",
-    description: "WIP",
+    title: "Videos",
+    description: "Solo video projects thrown onto the internet",
+    href: "/videos",
   },
 ];
 
