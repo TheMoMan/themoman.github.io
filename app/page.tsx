@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export default function Page() {
   return (
-    <div>
+    <div className="overflow-y-clip">
       <title>A Mo</title>
       <Hero />
       <div
