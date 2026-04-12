@@ -275,7 +275,7 @@ function PortfolioModal({
           />
           <motion.div
             layoutId={layoutId}
-            className="fixed inset-10 z-100 m-auto flex aspect-video max-h-120 items-center justify-center"
+            className="fixed inset-0 z-100 m-auto flex aspect-video max-h-120 items-center justify-center"
           >
             <PortfolioCarousel
               content={content}
