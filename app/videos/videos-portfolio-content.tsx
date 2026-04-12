@@ -7,8 +7,8 @@ export const VIDEOS_PORTFOLIO_CONTENT: PortfolioContent[] = [
     text: (
       <>
         <p>
-          Informational and instructional videos about how osu! maps are
-          created and why certain trends emerge.
+          Informational and instructional videos about how osu! maps are created
+          and why certain trends emerge.
         </p>
       </>
     ),
