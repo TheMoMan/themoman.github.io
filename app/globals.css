@@ -222,5 +222,5 @@
 }
 
 @utility card-transparent-gradient {
-  background: linear-gradient(to bottom right, color-mix(in srgb, var(--card) 40%, transparent), color-mix(in srgb, var(--accent) 40%, transparent));
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--card) 30%, transparent), color-mix(in srgb, var(--accent) 30%, transparent));
 }
