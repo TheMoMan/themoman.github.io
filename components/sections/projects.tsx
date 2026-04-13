@@ -5,11 +5,16 @@ import { Card, CardContent, CardHeader } from "../ui/card";
 import { useEffect, useRef, useState } from "react";
 import { hover, motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { IconType } from "react-icons";
 import { BsChevronCompactDown } from "react-icons/bs";
+import { SiOsu } from "react-icons/si";
+import { HiOutlineCommandLine } from "react-icons/hi2";
+import { MdOutlineOndemandVideo } from "react-icons/md";
 
 interface ProjectCardProps {
   title: string;
   description: string;
+  icon: IconType;
   href?: string;
 }
 
@@ -17,16 +22,19 @@ const PROJECT_ITEMS: ProjectCardProps[] = [
   {
     title: "osu! mapping",
     description: "AKA: Interactive audiovisual media and level design",
+    icon: SiOsu,
     href: "/osu",
   },
   {
     title: "Programming",
     description: "Side projects that happen to have code in them",
+    icon: HiOutlineCommandLine,
     href: "/programming",
   },
   {
     title: "Videos",
     description: "Solo video projects thrown onto the internet",
+    icon: MdOutlineOndemandVideo,
     href: "/videos",
   },
 ];
@@ -48,6 +56,7 @@ export function Projects() {
             <ProjectCard
               title={project.title}
               description={project.description}
+              icon={project.icon}
               href={project.href}
             />
           </motion.div>
@@ -57,7 +66,12 @@ export function Projects() {
   );
 }
 
-export function ProjectCard({ title, description, href }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  description,
+  icon: Icon,
+  href,
+}: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const isTouch = useRef(false);
@@ -87,13 +101,22 @@ export function ProjectCard({ title, description, href }: ProjectCardProps) {
   const card = (
     <Card
       ref={ref}
-      className={cn(href ? "opacity-80" : "opacity-50")}
+      className={cn(
+        !href && "opacity-50",
+        "gap-1.5 border-0 border-l-4 border-l-light-blue",
+        "card-transparent-gradient",
+        "hover:outline-1 text-white/50 hover:text-white",
+      )}
       tabIndex={href ? undefined : 0}
     >
       <CardHeader
-        className={cn("font-serif text-xl text-gray-500", href && "underline")}
+        className={cn(
+          "font-sans text-lg leading-8",
+          href && "underline",
+        )}
       >
-        {title}
+        <Icon size={"0.8em"} />
+        <div>{title}</div>
       </CardHeader>
       <motion.div
         initial={{ height: 0 }}
@@ -102,7 +125,7 @@ export function ProjectCard({ title, description, href }: ProjectCardProps) {
         className="overflow-hidden"
         key={title}
       >
-        <CardContent className="font-sans">{description}</CardContent>
+        <CardContent className="font-sans text-tint">{description}</CardContent>
       </motion.div>
     </Card>
   );

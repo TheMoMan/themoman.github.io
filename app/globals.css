@@ -88,6 +88,7 @@
   /* Colours */
   --color-highlight: #A09880;
   --color-tint: #666666;
+  --color-light-blue: #B7FFFD;
 
   /* Defaults */
   --color-sidebar-ring: var(--sidebar-ring);
@@ -134,6 +135,7 @@
 .custom {
   --color-highlight: #A09880;
   --color-tint: #666666;
+  --color-light-blue: #B7FFFD;
 }
 
 :root {
@@ -217,4 +219,8 @@
   html {
     @apply font-sans;
   }
+}
+
+@utility card-transparent-gradient {
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--card) 40%, transparent), color-mix(in srgb, var(--accent) 40%, transparent));
 }
