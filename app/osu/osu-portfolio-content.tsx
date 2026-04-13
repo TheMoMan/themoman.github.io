@@ -88,8 +88,8 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
     date: "2021 Jan 02",
     text: (
       <>
-        <p>Live collaboration map at Insomnia 65.</p>
         <p>Aurora effects and subtle particles.</p>
+        <p>Live collaboration map at Insomnia 65.</p>
       </>
     ),
     links: [
@@ -142,7 +142,7 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
     date: "2019 Jan 07",
     text: (
       <>
-        <p>Technically was my first alternating style map.</p>
+        <p>Rhythm-heavy slow alternating style map.</p>
         <p>I just thought the song was cute.</p>
       </>
     ),
