@@ -236,7 +236,10 @@ function PortfolioCarousel({
     <Carousel
       opts={{ loop: true }}
       setApi={setApi}
-      className={cn({ invisible: carouselHidden })}
+      className={cn(
+        onExpandClick ? "cursor-pointer" : "cursor-grab",
+        { invisible: carouselHidden },
+      )}
     >
       <CarouselContent>{renderCarouselContent()}</CarouselContent>
       {!!content.images?.length && (
