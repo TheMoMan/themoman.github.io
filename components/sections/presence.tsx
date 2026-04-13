@@ -117,7 +117,7 @@ function PresenceIcon({ presence, setActivePresence }: PresenceIconProps) {
   return (
     <a
       href={url}
-      className="px-3 text-white/50 transition-colors duration-150 hover:text-white"
+      className="px-3 text-white/50 transition-colors duration-150 hover:text-white focus:text-white"
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
       onFocus={onMouseOver}

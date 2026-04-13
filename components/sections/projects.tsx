@@ -105,7 +105,7 @@ export function ProjectCard({
         !href && "opacity-50",
         "gap-1.5 border-0 border-l-4 border-l-light-blue",
         "card-transparent-gradient",
-        "hover:outline-1 text-white/50 hover:text-white",
+        "hover:outline-1",
       )}
       tabIndex={href ? undefined : 0}
     >
@@ -113,6 +113,7 @@ export function ProjectCard({
         className={cn(
           "font-sans text-lg leading-8",
           href && "underline",
+          isExpanded ? "text-white" : "text-white/50",
         )}
       >
         <Icon size={"0.8em"} />
