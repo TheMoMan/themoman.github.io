@@ -223,4 +223,6 @@
 
 @utility card-transparent-gradient {
   background: linear-gradient(to bottom right, color-mix(in srgb, var(--card) 30%, transparent), color-mix(in srgb, var(--accent) 30%, transparent));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
