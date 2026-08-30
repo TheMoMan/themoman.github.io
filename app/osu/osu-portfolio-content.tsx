@@ -2,36 +2,9 @@ import { PortfolioContent } from "../../components/sections/portfolio";
 
 export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
   {
-    header: "senya - Yureru Koi wa Nami no Gotoku (Autobahn Remix)",
-    subHeader: "幽閉カタルシス - 揺れる恋は波の如く (Autobahn Remix)",
-    date: "ETA 2026",
-    text: (
-      <>
-        <p>Twin mapping and dual-layer audio spectrum from scratch.</p>
-        <p>Featured in osu! World Cup 2022 - Round of 32 DT3</p>
-      </>
-    ),
-    links: [
-      {
-        url: "https://osu.ppy.sh/beatmapsets/1867693",
-        label: "Mapset",
-        type: "primary",
-      },
-      {
-        url: "https://github.com/TheMoMan/osu.storyboards/tree/master/Yureru",
-        label: "Code",
-      },
-    ],
-    images: [
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-1_vzq72q",
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-2_xm7bdo",
-      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-3_wko8nj",
-    ],
-  },
-  {
     header: "earthmind - Kaleidoscope",
     subHeader: "earthmind - Kaleidoscope",
-    date: "ETA 2026",
+    date: "2026 Aug 30",
     text: (
       <>
         <p>Simplistic visuals and stop-start movements.</p>
@@ -53,6 +26,33 @@ export const OSU_PORTFOLIO_CONTENT: PortfolioContent[] = [
       "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kaleidoscope-1_cpxvju",
       "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kaleidoscope-2_lyr7mj",
       "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/kaleidoscope-3_fgwi8c",
+    ],
+  },
+  {
+    header: "senya - Yureru Koi wa Nami no Gotoku (Autobahn Remix)",
+    subHeader: "幽閉カタルシス - 揺れる恋は波の如く (Autobahn Remix)",
+    date: "2026 May 24",
+    text: (
+      <>
+        <p>Twin mapping and dual-layer audio spectrum from scratch.</p>
+        <p>Featured in osu! World Cup 2022 - Round of 32 DT3</p>
+      </>
+    ),
+    links: [
+      {
+        url: "https://osu.ppy.sh/beatmapsets/1867693",
+        label: "Mapset",
+        type: "primary",
+      },
+      {
+        url: "https://github.com/TheMoMan/osu.storyboards/tree/master/Yureru",
+        label: "Code",
+      },
+    ],
+    images: [
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-1_vzq72q",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-2_xm7bdo",
+      "https://res.cloudinary.com/dznjs7drl/image/upload/h_480,q_auto,f_auto/yureru-3_wko8nj",
     ],
   },
   {
